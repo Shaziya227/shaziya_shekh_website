@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Shaziya Shekh | Psychologist & Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7a9e7e;
+    --deep: #1a2b2a;
+    --warm: #f5f0e8;
+    --gold: #c9a96e;
+    --muted: #6b7f7e;
+    --accent: #e8d5b7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    letter-spacing: 0.05em; color: var(--deep);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; right: -10%; top: -10%;
+    width: 65%; height: 120%;
+    background: radial-gradient(ellipse at 60% 40%, #d6e8d7 0%, #b8d4ba 40%, transparent 70%);
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 0;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-label {
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage); font-weight: 500; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-label::before { content: ''; width: 2.5rem; height: 1px; background: var(--sage); }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--deep); margin-bottom: 0.3rem;
+  }
+  h1 em { font-style: italic; color: var(--sage); }
+
+  .hero-title {
+    font-size: 1rem; color: var(--muted); margin: 1.5rem 0 2.5rem;
+    font-weight: 300; line-height: 1.7;
+    max-width: 480px;
+  }
+  .hero-cta {
+    display: inline-block; padding: 0.9rem 2.5rem;
+    background: var(--deep); color: var(--warm);
+    text-decoration: none; font-size: 0.8rem;
+    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .hero-cta:hover { background: var(--sage); transform: translateY(-2px); }
+
+  .hero-stats {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; gap: 2rem;
+    padding-left: 5rem;
+  }
+  .stat {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .stat:nth-child(2) { animation-delay: 0.15s; }
+  .stat:nth-child(3) { animation-delay: 0.3s; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--deep);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 0.2rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTION STYLES */
+  section { padding: 6rem 5rem; }
+  .section-label {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300;
+    line-height: 1.15; margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  .about { background: var(--deep); color: var(--warm); }
+  .about .section-label { color: var(--sage); }
+  .about h2 { color: var(--warm); }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { line-height: 1.9; color: rgba(245,240,232,0.8); font-weight: 300; margin-bottom: 1.2rem; font-size: 1rem; }
+  .specializations { margin-top: 2rem; }
+  .spec-title { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+  .spec-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .spec-tag {
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(122, 158, 126, 0.4);
+    color: var(--sage); font-size: 0.78rem; letter-spacing: 0.05em;
+  }
+  .education-timeline { }
+  .edu-item {
+    border-left: 1px solid rgba(201, 169, 110, 0.3);
+    padding: 0 0 2.5rem 1.5rem;
+    position: relative;
+  }
+  .edu-item::before {
+    content: ''; position: absolute; left: -4px; top: 6px;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .edu-year { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+  .edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--warm); margin-bottom: 0.2rem; }
+  .edu-institution { font-size: 0.82rem; color: rgba(245,240,232,0.55); }
+  .edu-score { font-size: 0.78rem; color: var(--sage); margin-top: 0.2rem; }
+
+  /* RESEARCH */
+  .research { background: var(--warm); }
+  .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .pub-card {
+    padding: 2rem; border: 1px solid rgba(122, 158, 126, 0.2);
+    background: white; position: relative; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .pub-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--sage), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .pub-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,43,42,0.08); }
+  .pub-card:hover::after { transform: scaleX(1); }
+  .pub-year {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .pub-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400; line-height: 1.4;
+    color: var(--deep); margin-bottom: 0.8rem;
+  }
+  .pub-journal { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+
+  /* CONFERENCES */
+  .conferences { background: #f0ece3; }
+  .conf-list { max-width: 900px; }
+  .conf-item {
+    display: flex; gap: 2rem; padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(122, 158, 126, 0.15);
+    align-items: flex-start;
+  }
+  .conf-year {
+    min-width: 3.5rem; font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; color: var(--gold); font-weight: 300;
+  }
+  .conf-details { }
+  .conf-paper { font-weight: 400; color: var(--deep); margin-bottom: 0.3rem; line-height: 1.5; }
+  .conf-venue { font-size: 0.8rem; color: var(--muted); }
+
+  /* CONTACT */
+  .contact {
+    background: var(--deep); color: var(--warm);
+    text-align: center;
+  }
+  .contact h2 { color: var(--warm); }
+  .contact-info { display: flex; justify-content: center; gap: 4rem; margin-top: 2rem; flex-wrap: wrap; }
+  .contact-item { }
+  .contact-type { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
+  .contact-value { color: rgba(245,240,232,0.85); font-size: 0.95rem; }
+  .contact-value a { color: var(--gold); text-decoration: none; }
+  .contact-value a:hover { text-decoration: underline; }
+
+  footer {
+    background: #111d1c; color: rgba(245,240,232,0.3);
+    text-align: center; padding: 1.5rem;
+    font-size: 0.75rem; letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 2rem 3rem; }
+    .hero-stats { padding-left: 0; flex-direction: row; flex-wrap: wrap; margin-top: 3rem; }
+    section { padding: 4rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Shaziya Shekh</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#conferences">Conferences</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text fade-in">
+    <div class="hero-label">Psychologist & Researcher</div>
+    <h1>Shaziya <em>Shekh</em></h1>
+    <p class="hero-title">
+      Assistant Professor of Psychology at Dr. Ghanshyam Singh Mahavidyalaya, Varanasi. 
+      Specializing in adolescent mental health, disability studies, and evidence-based interventions.
+    </p>
+    <a href="#research" class="hero-cta">View Research</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">5+</div>
+      <div class="stat-label">Peer-Reviewed Publications</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">7+</div>
+      <div class="stat-label">Conferences Presented</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">MA</div>
+      <div class="stat-label">78.5% · BHU Varanasi</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">Background</div>
+  <h2>About Me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I am an Assistant Professor in the Department of Psychology at Dr. Ghanshyam Singh Mahavidyalaya, Varanasi, where I have been teaching since August 2024. I am currently pursuing my Ph.D. in Psychology from Mahatma Gandhi Kashi Vidyapith, Varanasi.
+      </p>
+      <p>
+        My research focus lies at the intersection of adolescent psychology, disability studies, and mental health. I am particularly interested in how parenting styles, emotional intelligence, and social factors influence psychological resilience and wellbeing in young people with and without physical disabilities.
+      </p>
+      <div class="specializations">
+        <div class="spec-title">Areas of Specialization</div>
+        <div class="spec-list">
+          <span class="spec-tag">Clinical & Counselling</span>
+          <span class="spec-tag">Adolescent Mental Health</span>
+          <span class="spec-tag">Disability Studies</span>
+          <span class="spec-tag">Yoga & Mental Health</span>
+          <span class="spec-tag">Gender & Education</span>
+        </div>
+      </div>
+    </div>
+    <div class="education-timeline">
+      <div class="edu-item">
+        <div class="edu-year">PURSUING</div>
+        <div class="edu-degree">Ph.D. in Psychology</div>
+        <div class="edu-institution">MG Kashi Vidyapith, Varanasi</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2021</div>
+        <div class="edu-degree">P.G. Diploma — Psychotherapy, Counselling & Guidance</div>
+        <div class="edu-institution">MG Kashi Vidyapith, Varanasi</div>
+        <div class="edu-score">74%</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2018</div>
+        <div class="edu-degree">NET — Psychology</div>
+        <div class="edu-institution">University Grant Commission</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2017</div>
+        <div class="edu-degree">Master of Arts — Psychology</div>
+        <div class="edu-institution">Banaras Hindu University</div>
+        <div class="edu-score">78.5%</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2015</div>
+        <div class="edu-degree">Bachelor of Arts</div>
+        <div class="edu-institution">Banaras Hindu University</div>
+        <div class="edu-score">75.5%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="research" id="research">
+  <div class="section-label">Scholarly Work</div>
+  <h2>Publications</h2>
+  <div class="research-grid">
+    <div class="pub-card fade-in">
+      <div class="pub-year">2025</div>
+      <div class="pub-title">Role of Parenting Styles in Mental Health Among Adolescents with Locomotor Disability</div>
+      <div class="pub-journal">Mind and Society, 14(1), 43–49</div>
+    </div>
+    <div class="pub-card fade-in">
+      <div class="pub-year">2024</div>
+      <div class="pub-title">Emotional Intelligence and Resilience: A Comparison of Adolescents with Locomotor Disability and Non-Challenged Adolescents</div>
+      <div class="pub-journal">INSPA Journal of Applied and School Psychology, 6(Special Issue)</div>
+    </div>
+    <div class="pub-card fade-in">
+      <div class="pub-year">2020</div>
+      <div class="pub-title">Impact of COVID-19 Epidemic on Mental Health: A Systematic Review</div>
+      <div class="pub-journal">International Journal of Creative Research Thoughts, 8(10)</div>
+    </div>
+    <div class="pub-card fade-in">
+      <div class="pub-year">2019</div>
+      <div class="pub-title">The Impact of Yoga and Meditation on Depression and Anxiety</div>
+      <div class="pub-journal">IAHRW International Journal of Social Science Review, Vol. 7, Issue 6-1</div>
+    </div>
+    <div class="pub-card fade-in">
+      <div class="pub-year">2019</div>
+      <div class="pub-title">Self-Concept and Self-Esteem Among Adolescents with Physical Disability: A Systematic Review</div>
+      <div class="pub-journal">Praachi Journal of Psycho-Cultural Dimensions, Vol. 35</div>
+    </div>
+    <div class="pub-card fade-in">
+      <div class="pub-year">2021</div>
+      <div class="pub-title">Life Goals and Happiness in Indian and Western Perspective</div>
+      <div class="pub-journal">Book Chapter · Life Goal, Spirituality and Health · Shree Publication, New Delhi</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFERENCES -->
+<section class="conferences" id="conferences">
+  <div class="section-label">Academic Engagement</div>
+  <h2>Papers Presented</h2>
+  <div class="conf-list">
+    <div class="conf-item fade-in">
+      <div class="conf-year">2023</div>
+      <div class="conf-details">
+        <div class="conf-paper">Parenting Style and Mental Health among Adolescents: A Systematic Review</div>
+        <div class="conf-venue">National Seminar on Psychology & Society Today · MG Kashi Vidyapith, Varanasi</div>
+      </div>
+    </div>
+    <div class="conf-item fade-in">
+      <div class="conf-year">2020</div>
+      <div class="conf-details">
+        <div class="conf-paper">Yoga Interventions for Patients with Multiple Sclerosis</div>
+        <div class="conf-venue">International Conference on Yoga and Health · Govt. Girls' Degree College, Varanasi</div>
+      </div>
+    </div>
+    <div class="conf-item fade-in">
+      <div class="conf-year">2020</div>
+      <div class="conf-details">
+        <div class="conf-paper">Gender Based Inequalities in Education</div>
+        <div class="conf-venue">National Seminar on Women and Gender Equality in Higher Education · MG Kashi Vidyapith</div>
+      </div>
+    </div>
+    <div class="conf-item fade-in">
+      <div class="conf-year">2019</div>
+      <div class="conf-details">
+        <div class="conf-paper">The Association of Physical Disability with Suicide</div>
+        <div class="conf-venue">5th International Conference · Indian Academy of Health Psychology, Varanasi</div>
+      </div>
+    </div>
+    <div class="conf-item fade-in">
+      <div class="conf-year">2019</div>
+      <div class="conf-details">
+        <div class="conf-paper">Self-Esteem and Self-Concept of Physically Disabled Adolescents</div>
+        <div class="conf-venue">National Seminar on Life-Span Human Development · DDU Gorakhpur University</div>
+      </div>
+    </div>
+    <div class="conf-item fade-in">
+      <div class="conf-year">2019</div>
+      <div class="conf-details">
+        <div class="conf-paper">Nationality and Education</div>
+        <div class="conf-venue">National Seminar on Indian Nationalism · MG Kashi Vidyapith, Varanasi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2>Contact</h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <div class="contact-type">Email</div>
+      <div class="contact-value"><a href="mailto:shziyashekh227@gmail.com">shziyashekh227@gmail.com</a></div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-type">Mobile</div>
+      <div class="contact-value">+91 70807 88665</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-type">Institution</div>
+      <div class="contact-value">Dr. Ghanshyam Singh Mahavidyalaya<br>Varanasi, Uttar Pradesh</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Shaziya Shekh · Department of Psychology · Varanasi
+</footer>
+
+<script>
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
